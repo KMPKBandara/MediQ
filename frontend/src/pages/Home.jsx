@@ -68,6 +68,7 @@ const Home = () => {
         </div>
       </section>
       {/* ===== hero section end ===== */}
+      <div></div>
     </>
   );
 };
