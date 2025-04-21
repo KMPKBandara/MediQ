@@ -68,7 +68,27 @@ const Home = () => {
         </div>
       </section>
       {/* ===== hero section end ===== */}
-      <div></div>
+      <section>
+        <div className="container">
+          <div className="lg:w-[470px] mx-auto">
+            <h2 className="heading text-center">
+              Providing the best medical services
+            </h2>
+            <p className="text_para text-center">
+              world-class care for everyone. Our health system offers unmatched,
+              expert health care.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-[30px] mt-[30px] lg:mt-[55px]">
+            xdx
+          </div>
+
+          <div className="flex flex-wrap items-center justify-between flex-col md:flex-row gap-5 lg:gap-[30px] mt-[30px] lg:mt-[55px]]">
+            hwu
+          </div>
+        </div>
+      </section>
     </>
   );
 };
