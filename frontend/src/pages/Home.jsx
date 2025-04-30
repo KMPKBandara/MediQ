@@ -8,6 +8,7 @@ import icon3 from "../assets/images/icon03.png";
 import { Link } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
 import About from "../components/About/About";
+import ServiceList from "../components/Services/ServiceList";
 
 const Home = () => {
   return (
@@ -167,9 +168,37 @@ const Home = () => {
               expert health care.
             </p>
           </div>
+          <ServiceList />
         </div>
       </section>
       {/* ===== services section end ===== */}
+
+      {/* ===== feature section ===== */}
+      <section>
+        <div className="container">
+          <div className="flex items-center justify-between flex-col lg:flex-row">
+            {/* ===== feature content */}
+            <div className="xl:w-[670px]">
+              <h2 className="heading">
+                Get virtual treatment <br /> anytime.
+              </h2>
+              <ul className="pl-4">
+                <li className="text_para">
+                  1. Schedule the appointment directly.
+                </li>
+                <li className="text_para">
+                  2. Search for your physician here, and contact there office.
+                </li>
+                <li className="text_para">
+                  3. Viewour physicians who are accepting new patients, use the
+                  online scheduling tool to select an appointment time.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* ===== feature section end ===== */}
     </>
   );
 };
