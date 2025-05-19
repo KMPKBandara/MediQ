@@ -12,6 +12,7 @@ const DoctorDetails = () => {
     <section>
       <div className="max-w-[1170px] px-5 mx-auto">
         <div className="grid md:grid-cols-3 gap-[50px]">
+          {/* Left side - Doctor info and tab content */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-5">
               <figure className="max-w-[200px] max-h-[200px]">
@@ -39,15 +40,17 @@ const DoctorDetails = () => {
                 </p>
               </div>
             </div>
+
+            {/* Tabs */}
             <div className="mt-[50px] border-b border-solid border-[#0066ff34]">
               <button
                 onClick={() => setTab("about")}
                 className={`py-2 px-5 mr-5 text-[16px] leading-7 text-headingColor font-semibold
-                           ${
-                             tab === "about"
-                               ? "border-b border-solid border-primaryColor"
-                               : ""
-                           }`}
+                  ${
+                    tab === "about"
+                      ? "border-b border-solid border-primaryColor"
+                      : ""
+                  }`}
               >
                 About
               </button>
@@ -55,22 +58,26 @@ const DoctorDetails = () => {
               <button
                 onClick={() => setTab("feedback")}
                 className={`py-2 px-5 mr-5 text-[16px] leading-7 text-headingColor font-semibold
-                           ${
-                             tab === "feedback"
-                               ? "border-b border-solid border-primaryColor"
-                               : ""
-                           }`}
+                  ${
+                    tab === "feedback"
+                      ? "border-b border-solid border-primaryColor"
+                      : ""
+                  }`}
               >
-                About
+                Feedback
               </button>
             </div>
+
+            {/* Tab content */}
             <div className="mt-[50px]">
               {tab === "about" && <DoctorAbout />}
               {tab === "feedback" && <Feedback />}
             </div>
-            <div>
-              <SidePanel />
-            </div>
+          </div>
+
+          {/* Right side - SidePanel */}
+          <div>
+            <SidePanel />
           </div>
         </div>
       </div>
