@@ -20,3 +20,7 @@ yarn-error.log*
 # IDE settings (optional)
 .vscode/
 .idea/
+
+#Username : pramudithakavinda01
+#Password : 1ywmLGjN4sRsGh4e
+#mongodb+srv://pramudithakavinda01:1ywmLGjN4sRsGh4e@cluster0.uo6adjx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
