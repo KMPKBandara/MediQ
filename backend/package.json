@@ -1,0 +1,32 @@
+{
+  "name": "mediq-booking",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "homepage": "https://github.com/KMPKBandara/MediQ#readme",
+  "bugs": {
+    "url": "https://github.com/KMPKBandara/MediQ/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KMPKBandara/MediQ.git"
+  },
+  "license": "ISC",
+  "author": "Pramuditha Bandara",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "start-dev" : "nodemon index.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.16.0",
+    "mongoose": "^8.15.0"
+  }
+}
