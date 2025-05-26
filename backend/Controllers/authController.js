@@ -6,7 +6,10 @@ import bcrypt from "bcryptjs";
 const generateToken = (user) => {
   return jwt.sign(
     { id: user._id, role: user.role },
-    process.env.JWT_SECRET_key
+    process.env.JWT_SECRET_KEY,
+    {
+      expiresIn: "15d",
+    }
   );
 };
 
@@ -63,7 +66,7 @@ export const register = async (req, res) => {
 };
 
 export const login = async (req, res) => {
-  const { email, password } = req.body;
+  const { email } = req.body;
 
   try {
     let user = null;
@@ -83,7 +86,10 @@ export const login = async (req, res) => {
     }
 
     //compare password
-    const isPasswordMatch = await bcrypt.compare(password, user.password);
+    const isPasswordMatch = await bcrypt.compare(
+      req.body.password,
+      user.password
+    );
     if (!isPasswordMatch) {
       return res
         .status(400)
@@ -92,5 +98,16 @@ export const login = async (req, res) => {
 
     //get take
     const token = generateToken(user);
-  } catch (err) {}
+
+    const { password, role, appointment, ...rest } = user._doc;
+    res.status(200).json({
+      status: true,
+      message: "Successfuly login",
+      token,
+      data: { ...rest },
+      role,
+    });
+  } catch (err) {
+    res.status(500).json({ status: false, message: "Failed to login" });
+  }
 };
