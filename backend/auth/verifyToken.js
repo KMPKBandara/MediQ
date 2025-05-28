@@ -14,7 +14,7 @@ export const authenticate = async (req, res, next) => {
   }
 
   try {
-    const token = authToken.split("")[1];
+    const token = authToken.split(" ")[1];
     // verify token
     const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
 

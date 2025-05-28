@@ -5,10 +5,13 @@ import {
 } from "../Controllers/reviewController.js";
 import { authenticate, restrict } from "./../auth/verifyToken.js";
 
-const router = express.Router();
+const router = express.Router({ mergeParams: true });
+
+// /doctor/doctorId/reviews
+
 router
   .route("/")
   .get(getAllReviews)
-  .post(authenticate, restrict(["patient"]), createReview);
+  .post(authenticate, restrict(["patient", "doctor"]), createReview);
 
 export default router;
