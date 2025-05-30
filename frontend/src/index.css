@@ -54,7 +54,11 @@
         @apply text-[16px] leading-7 mt-3;
     }
 }
+
+// new  one
+===========================================================================================================================
 */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -97,4 +101,5 @@
   .form_input{
         @apply w-full px-4 border-solid border-[#0066ff61] focus:border-primaryColor text-[16px] leading-7 text-headingColor placeholder:text-textColor cursor-pointer rounded-md;
   }
+  
 }
