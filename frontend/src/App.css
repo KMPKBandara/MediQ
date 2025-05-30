@@ -85,3 +85,12 @@ body{
     display: block;
   }
 }
+
+.Toastify {
+  position: fixed !important; /* Ensure it's fixed */
+  top: 20px !important;       /* Adjust as needed, e.g., 20px from the top */
+  right: 20px !important;      /* Adjust as needed, e.g., 20px from the right */
+  z-index: 9999 !important;    /* Ensure it's on top of other content */
+  /* You might also want to set width if it's too wide */
+  width: auto !important; /* Or a specific max-width like max-w-sm in Tailwind */
+}
