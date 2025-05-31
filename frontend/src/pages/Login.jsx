@@ -1,5 +1,8 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { BASE_URL } from "../config";
+import { toast } from "react-toastify";
+import { authContext } from "../context/AuthContext.jsx";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -7,16 +10,67 @@ const Login = () => {
     password: "",
   });
 
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+  const { dispatch } = useContext(authContext);
+
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
+  const submitHandler = async (event) => {
+    event.preventDefault();
+    setLoading(true); // Start loading for form submission
+
+    try {
+      const res = await fetch(`${BASE_URL}/auth/login`, {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await res.json(); // Parse JSON response here
+
+      if (!res.ok) {
+        // If response is not OK (e.g., 4xx or 5xx status)
+        throw new Error(result.message || "Registration failed"); // Use message from backend or a generic one
+      }
+
+      dispatch({
+        type: "LOGIN_SUCCESS",
+        payload: {
+          user: result.data,
+          token: result.token,
+          role: result.role,
+        },
+      });
+
+      console.log(result, "Login data");
+
+      // If registration is successful
+      setLoading(false);
+      toast.success(result.message || "Registration successful!"); // Use message from backend or a generic one
+
+      // Introduce a small delay before navigating
+      setTimeout(() => {
+        navigate("/home");
+      }, 1500); // Delay for 1.5 seconds (adjust as needed)
+    } catch (err) {
+      // Handle errors (network issues, backend errors, etc.)
+      toast.error(err.message || "An unexpected error occurred.");
+      setLoading(false);
+    }
+  };
+
   return (
     <section className="px-5 lg:px-0">
       <div className="w-full max-w-[570px] mx-auto rounded-lg shadow-md md:p-10">
         <h3 className="text-headingColor text-[22px] leading-9 font-bold mb-10">
           Hello <span className="text-primaryColor">Welcome</span> Back
         </h3>
-        <form action="" className="py-4 md:py-0">
+        <form className="py-4 md:py-0" onSubmit={submitHandler}>
           <div className="mb-5">
             <input
               type="email"
