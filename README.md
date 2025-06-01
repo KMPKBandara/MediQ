@@ -7,4 +7,7 @@ Second Completed.
 Third Completed.
 
 4th start :
-End - 24:50 / 01:31:31
+End - 37:40 / 01:31:31
+
+Small error in header section. Always profile pic display and Login button not display
+Fix that error before 37:40
