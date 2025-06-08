@@ -5,6 +5,8 @@ import useGetProfile from "../../hooks/useFetchData.jsx";
 import { BASE_URL } from "../../config.js";
 import Tabs from "./Tabs.jsx";
 import StarIcon from "../../assets/images/Star.png";
+import DoctorAbout from "../../pages/Doctors/DoctorAbout.jsx";
+import Profile from "./Profile.jsx";
 
 const Dashboard = () => {
   const { data, loading, error } = useGetProfile(
@@ -74,10 +76,16 @@ const Dashboard = () => {
                         </p>
                       </div>
                     </div>
+                    <DoctorAbout
+                      name={data.name}
+                      about={data.about}
+                      qualifications={data.qualifications}
+                      experiences={data.experiences}
+                    />
                   </div>
                 )}
                 {tab === "appointments" && <div>appointments</div>}
-                {tab === "settings" && <div>profile settings</div>}
+                {tab === "settings" && <Profile />}
               </div>
             </div>
           </div>
