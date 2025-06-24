@@ -5,6 +5,7 @@ const Profile = () => {
     name: "",
     email: "",
     phone: "",
+    bio: "",
   });
 
   const handleInputChange = (e) => {};
@@ -49,6 +50,18 @@ const Profile = () => {
             onChange={handleInputChange}
             placeholder="Phone number"
             className="form_input"
+          />
+        </div>
+        <div className="mb-5">
+          <p className="form_label">Bio*</p>
+          <input
+            type="text"
+            name="bio"
+            value={formData.bio}
+            onChange={handleInputChange}
+            placeholder="Bio"
+            className="form_input"
+            maxLength={100}
           />
         </div>
       </form>
