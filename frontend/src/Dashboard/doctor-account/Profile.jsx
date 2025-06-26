@@ -6,6 +6,7 @@ const Profile = () => {
     email: "",
     phone: "",
     bio: "",
+    gender: "",
   });
 
   const handleInputChange = (e) => {};
@@ -63,6 +64,25 @@ const Profile = () => {
             className="form_input"
             maxLength={100}
           />
+        </div>
+
+        <div className="mb-5">
+          <div className="grid grid-cols-3 gap-5 mb-[30px]">
+            <div>
+              <p className="form_lable">Gender</p>
+              <select
+                name="gender"
+                value={formData.gender}
+                onChange={handleInputChange}
+                className="form_input py-3.5"
+              >
+                <option value="">Select</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
         </div>
       </form>
     </div>
